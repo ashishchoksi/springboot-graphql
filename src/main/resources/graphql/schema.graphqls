@@ -1,0 +1,29 @@
+# When you want to get/query the data you have to use Query type
+type Query {
+    getAllBooks: [Book] # [Book] means list of book
+    getBook(bookId: Int): Book # single Book
+}
+
+# This is Book schema definition
+type Book {
+    id: ID!
+    title: String
+    description: String
+    author: String
+    price: Float
+    pages: Int
+}
+
+# mutation used when you want to add/update the data
+type Mutation {
+    createBook(book:BookInput): Book
+}
+
+# mutation reuire Input type to add value so we have created the inputType BookInput
+input BookInput {
+    title: String
+    description: String
+    author: String
+    price: Float
+    pages: Int
+}
